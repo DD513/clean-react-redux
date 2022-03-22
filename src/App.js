@@ -1,15 +1,9 @@
 import React from "react";
-import { Button } from "antd";
-import CounterPage from "./page/counter/counter";
 import "./App.less";
+import Router from "./pages/router";
 
 function App() {
-  return (
-    <div className="App">
-      <CounterPage></CounterPage>
-      <Button type="primary">antd Button</Button>
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
