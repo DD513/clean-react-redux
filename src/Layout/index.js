@@ -9,10 +9,10 @@ const { Content } = Layout;
 
 const LayoutWithRoute = ({ children }) => {
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout>
       <SideMenu />
       <Layout>
-        <Content style={{ margin: "20px 16px" }}>{children}</Content>
+        <Content>{children}</Content>
         <Footer />
       </Layout>
     </Layout>

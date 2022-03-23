@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-
 import { Layout, Menu } from "antd";
-import {
-  HomeOutlined,
-  DashboardOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
+import Swing from "react-reveal/Swing";
+import "./global.less";
+import "./style.less";
 
 const { Sider } = Layout;
 
@@ -16,29 +13,41 @@ const App = () => {
 
   const onCollapse = (collapsed) => setCollapsed(collapsed);
   return (
-    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-      <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={[location.pathname]}
-      >
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      width={300}
+    >
+      <div className="sideBlock">
+        <Swing duration={3000}>
+          <img
+            src={require("../assets/images/logo.png")}
+            className="logo"
+            alt="logo"
+          />
+        </Swing>
+      </div>
+      <Menu className="sideMenu">
         <Menu.Item key="/">
-          <HomeOutlined />
-          <span>Home</span>
-          <Link to="/"></Link>
+          <Link to="/">
+            <p className="hover-underline-animation">首頁</p>
+          </Link>
         </Menu.Item>
-
-        <Menu.Item key="/users">
-          <TeamOutlined />
-          <span>Login</span>
-          <Link to="/login"></Link>
+        <Menu.Item key="/about">
+          <Link to="/about">
+            <p className="hover-underline-animation">關於我們</p>
+          </Link>
         </Menu.Item>
-
-        <Menu.Item key="/counter">
-          <DashboardOutlined />
-          <span>Counter</span>
-          <Link to="/counter"></Link>
+        <Menu.Item key="/contact">
+          <Link to="/contact">
+            <p className="hover-underline-animation">聯絡我們</p>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="/login">
+          <Link to="/login">
+            <p className="hover-underline-animation">登入 / 註冊</p>
+          </Link>
         </Menu.Item>
       </Menu>
     </Sider>
