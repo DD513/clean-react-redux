@@ -1,0 +1,106 @@
+@main-color:#fb8500;
+@secondary-color:#8ecae6;
+@white-color:#ffffff;
+@loginBtnColor:#F5CFB8;
+@black-color:#000000;
+
+.sideBlock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo{
+        padding-top: 50px;
+    }
+}
+
+.ant-menu{
+    text-align: center;
+}
+
+#loginLayout{
+    background-image: url('../assets/images/login.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    background-blend-mode: multiply;
+    .ant-layout-content {
+        margin-left: 0;
+    }
+    .wrapper{
+        height: 100vh;
+    }
+    .loginBlock{
+        text-align: center;
+        margin: 30px 0;
+        h2{
+            color: @white-color;
+            font-size: 1.75rem;
+        }
+    }
+    .signupBlock{
+        text-align: center;
+        margin: 10px 0;
+        h2{
+            color: @white-color;
+            font-size: 1.25rem;
+        }
+    }
+    .ant-input {
+        background-color: transparent;
+        padding: 12px 8px;
+        border-radius: 50px;
+        color: @white-color;
+        font-size: 1rem;
+        &:hover{
+            border-color: @white-color;
+        }
+        &:focus{
+            border-color: @white-color;
+        }
+        &::placeholder{
+            color: @white-color;
+            letter-spacing: 0.25rem;
+        }
+    }
+    .ant-input-affix-wrapper{
+        background-color: transparent;
+        border-radius: 50px;
+        padding: 0 15px;
+        color: @white-color;
+        &:hover{
+            border-color: @white-color;
+        }
+        &:focus{
+            border-color: @white-color;
+        }
+        &:not(:focus){
+            border-color: @white-color;
+        }
+    }
+    .ant-input-suffix{
+        padding-right: 10px;
+    }
+    .ant-input-password-icon.anticon{
+        color: @white-color;
+        &:hover{
+            color: @white-color;
+        }
+    }
+    .loginButton{
+        width: 100%;
+        border-radius: 50px;
+        padding: 12px 15px;
+        background-color: @loginBtnColor;
+        height: auto;
+        &:hover , &:active{
+            color: @black-color;
+            border-color: @loginBtnColor;
+        }
+        &:focus , &:not(:focus){
+            color: @black-color;
+            border-color: @loginBtnColor;
+        }
+    }
+}

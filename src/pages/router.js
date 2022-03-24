@@ -1,25 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
-import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RouteApp from "../components/RouteApp";
-
 import Login from "./Login/index";
 import Counter from "./counter/counter";
-import Home from "./Home/index";
 import GlobalLayout from "../Layout/index";
+import LoginLayout from "../Layout/LoginLayout";
+import Home from "./Home/index";
+import SignUp from "./signUp/index";
 
 function Router() {
   return (
     <BrowserRouter>
-      <GlobalLayout>
-        <Routes>
-          <Route path="login" element={<Login />} />
+      <Routes>
+        <Route element={<GlobalLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="counter" element={<Counter />} />
-        </Routes>
-      </GlobalLayout>
+          <Route path="/about" element={<Counter />} />
+        </Route>
+
+        <Route element={<LoginLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

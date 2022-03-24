@@ -4,15 +4,18 @@ import { Layout } from "antd";
 
 import SideMenu from "./SideMenu";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const { Content } = Layout;
 
 const LayoutWithRoute = ({ children }) => {
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout>
       <SideMenu />
       <Layout>
-        <Content style={{ margin: "20px 16px" }}>{children}</Content>
+        <Content>
+          <Outlet />
+        </Content>
         <Footer />
       </Layout>
     </Layout>
