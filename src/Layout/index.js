@@ -4,6 +4,7 @@ import { Layout } from "antd";
 
 import SideMenu from "./SideMenu";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -12,7 +13,9 @@ const LayoutWithRoute = ({ children }) => {
     <Layout>
       <SideMenu />
       <Layout>
-        <Content>{children}</Content>
+        <Content>
+          <Outlet />
+        </Content>
         <Footer />
       </Layout>
     </Layout>

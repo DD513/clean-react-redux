@@ -1,15 +1,16 @@
 import React from "react";
 import { Layout } from "antd";
-import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
+import "./global.less";
 
 const { Content } = Layout;
 
 const LayoutWithLogin = ({ children }) => {
   return (
-    <Layout>
-      <div>123</div>
-      <Content>{children}</Content>
-      <Footer />
+    <Layout id="loginLayout">
+      <Content>
+        <Outlet />
+      </Content>
     </Layout>
   );
 };

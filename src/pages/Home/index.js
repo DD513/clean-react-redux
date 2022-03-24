@@ -9,19 +9,25 @@ function Home() {
     <Row>
       <div className="container">
         <div className="box">
-          <img src={require("../../assets/images/spring.jpg")} alt="spring" />
+          <img src={require("../../assets/images/3.jpg")} alt="spring" />
           <span>Spring</span>
         </div>
         <div className="box">
-          <img src={require("../../assets/images/summer.jpg")} alt="summer" />
+          <img src={require("../../assets/images/2.jpg")} alt="summer" />
           <span>Summer</span>
         </div>
         <div className="box">
-          <img src={require("../../assets/images/autumn.jpg")} alt="autumn" />
+          <img
+            src={require("../../assets/images/nafinia-putra-Kwdp-0pok-I-unsplash.jpg")}
+            alt="autumn"
+          />
           <span>Autumn</span>
         </div>
         <div className="box">
-          <img src={require("../../assets/images/winter.jpg")} alt="winter" />
+          <img
+            src={require("../../assets/images/nathan-dumlao-6VhPY27jdps-unsplash.jpg")}
+            alt="winter"
+          />
           <span>Winter</span>
         </div>
       </div>
