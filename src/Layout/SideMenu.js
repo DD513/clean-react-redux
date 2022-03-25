@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout, Menu } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swing from "react-reveal/Swing";
 import "./global.less";
 import "./style.less";
@@ -9,7 +9,6 @@ const { Sider } = Layout;
 
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const location = useLocation();
 
   const onCollapse = (collapsed) => setCollapsed(collapsed);
   return (
