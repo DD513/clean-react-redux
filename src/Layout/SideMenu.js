@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Swing from "react-reveal/Swing";
 import "./global.less";
 import "./style.less";
+import images from "../config/images";
 
 const { Sider } = Layout;
 
@@ -11,6 +12,7 @@ const App = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onCollapse = (collapsed) => setCollapsed(collapsed);
+
   return (
     <Sider
       collapsible
@@ -20,11 +22,7 @@ const App = () => {
     >
       <div className="sideBlock">
         <Swing duration={3000}>
-          <img
-            src={require("../assets/images/logo.png")}
-            className="logo"
-            alt="logo"
-          />
+          <img src={images.homeLogo} className="logo" alt="logo" />
         </Swing>
       </div>
       <Menu className="sideMenu">
