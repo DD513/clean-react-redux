@@ -1,19 +1,34 @@
 import { takeLatest, call } from "redux-saga/effects";
 import { POST_login } from "../../services/user";
-import { setToken } from "../../utils/token";
+import { setToken, cleanToken } from "../../utils/token";
 import { message } from "antd";
+import { Link } from "react-router-dom";
+import { effectError } from "../../utils/handleError";
+
+export function* POST_UserLogout() {
+  try {
+    yield cleanToken();
+    message.config({
+      maxCount: 1,
+    });
+    message.success("您已登出！");
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function* POST_UserLogin({ payload, callback, loading }) {
   try {
     if (loading) loading(true);
-    console.log("===POST_login===", payload);
     const response = yield call(POST_login, payload);
     yield setToken(response.token);
     message.success(response.message);
+    window.location.replace("/");
     if (loading) loading(false);
     if (callback) callback();
   } catch (error) {
     if (loading) loading(false);
+    yield effectError(error);
   }
 }
 

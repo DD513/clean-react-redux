@@ -1,7 +1,7 @@
 const apiConfig = {
-  protocol: process.env.API_PROTOCOL || "http",
-  host: process.env.API_HOST || "localhost",
-  port: process.env.API_PORT || "3000",
+  protocol: process.env.API_PROTOCOL || "https",
+  host: process.env.API_HOST || "clean-nodejs-dd.herokuapp.com",
+  port: process.env.API_PORT || "",
   prefix: process.env.API_PREFIX || "/api",
 };
 
