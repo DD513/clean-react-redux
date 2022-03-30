@@ -9,6 +9,8 @@ const images = {
   // index
   // homeLogo: require(`${IMAGE_FOLDER}/logo.png`),
   homeLogo: require(`../assets/images/logo.png`),
+
+  NotFound: require(`../assets/images/NotFound2.png`),
 };
 
 export default images;

@@ -6,6 +6,7 @@ import GlobalLayout from "../Layout/index";
 import LoginLayout from "../Layout/LoginLayout";
 import Home from "./Home/index";
 import SignUp from "./signUp/index";
+import NotFound from "./NotFound/index";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
