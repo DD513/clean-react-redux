@@ -11,6 +11,7 @@ const images = {
   homeLogo: require(`../assets/images/logo.png`),
 
   NotFound: require(`../assets/images/NotFound2.png`),
+  NotFoundBG: require(`../assets/images/NotFoundBG.png`),
 };
 
 export default images;
