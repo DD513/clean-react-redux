@@ -1,36 +1,40 @@
 import React from "react";
 import { Row } from "antd";
 import "./index.less";
+import _ from "lodash";
+import images from "../../config/images";
 
-function Home() {
+const Home = () => {
+  const HomeBoxImage = [
+    {
+      imgSrc: images.homeOne,
+      imgTitle: "Introduce",
+    },
+    {
+      imgSrc: images.homeTwo,
+      imgTitle: "Relax",
+    },
+    {
+      imgSrc: images.homeThree,
+      imgTitle: "Interest",
+    },
+    {
+      imgSrc: images.homeFour,
+      imgTitle: "Character",
+    },
+  ];
   return (
     <Row>
       <div className="container">
-        <div className="box">
-          <img src={require("../../assets/images/3.jpg")} alt="spring" />
-          <span>Spring</span>
-        </div>
-        <div className="box">
-          <img src={require("../../assets/images/2.jpg")} alt="summer" />
-          <span>Summer</span>
-        </div>
-        <div className="box">
-          <img
-            src={require("../../assets/images/nafinia-putra-Kwdp-0pok-I-unsplash.jpg")}
-            alt="autumn"
-          />
-          <span>Autumn</span>
-        </div>
-        <div className="box">
-          <img
-            src={require("../../assets/images/nathan-dumlao-6VhPY27jdps-unsplash.jpg")}
-            alt="winter"
-          />
-          <span>Winter</span>
-        </div>
+        {_.map(HomeBoxImage, (item, index) => (
+          <div className="box">
+            <img key={item.imgTitle} src={item.imgSrc} alt={item.imgTitle} />
+            <span>{item.imgTitle}</span>
+          </div>
+        ))}
       </div>
     </Row>
   );
-}
+};
 
 export default Home;

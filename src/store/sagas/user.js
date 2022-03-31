@@ -7,11 +7,13 @@ import { effectError } from "../../utils/handleError";
 
 export function* POST_UserLogout() {
   try {
+    console.log("123");
     yield cleanToken();
     message.config({
       maxCount: 1,
     });
     message.success("您已登出！");
+    window.location.replace("/login");
   } catch (error) {
     console.log(error);
   }

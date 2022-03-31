@@ -12,6 +12,10 @@ const images = {
 
   NotFound: require(`../assets/images/NotFound2.png`),
   NotFoundBG: require(`../assets/images/NotFoundBG.png`),
+  homeOne: require("../assets/images/Introduce.jpg"),
+  homeTwo: require("../assets/images/Interest.jpg"),
+  homeThree: require("../assets/images/Relax.jpg"),
+  homeFour: require("../assets/images/Character.jpg"),
 };
 
 export default images;
