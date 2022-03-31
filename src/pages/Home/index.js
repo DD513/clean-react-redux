@@ -27,9 +27,9 @@ const Home = () => {
     <Row>
       <div className="container">
         {_.map(HomeBoxImage, (item, index) => (
-          <div className="box">
-            <img key={item.imgTitle} src={item.imgSrc} alt={item.imgTitle} />
-            <span>{item.imgTitle}</span>
+          <div className="box" key={index}>
+            <img key={item.imgSrc} src={item.imgSrc} alt={item.imgTitle} />
+            <span key={index}>{item.imgTitle}</span>
           </div>
         ))}
       </div>

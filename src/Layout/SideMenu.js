@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Layout, Menu, Switch, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Swing from "react-reveal/Swing";
 import "./global.less";
 import "./style.less";
-import images from "../config/images";
 import _ from "lodash";
 import {
   HomeOutlined,
@@ -20,8 +18,10 @@ const { Sider } = Layout;
 function SideMenu() {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch({ type: "POST_UserLogout" });
+  const handleLogout = (e) => {
+    if (e.key === "logout") {
+      dispatch({ type: "POST_UserLogout" });
+    }
   };
 
   const [collapsed, setCollapsed] = useState(false);
@@ -82,8 +82,13 @@ function SideMenu() {
                 </Link>
               </Menu.Item>
             ))}
-            <Menu.Item key="login">
-              <Link to="login" onClick={handleLogout}>
+            <Menu.Item
+              key={
+                _.isEmpty(localStorage.getItem("token")) ? "login" : "logout"
+              }
+              onClick={handleLogout}
+            >
+              <Link to="login">
                 {_.isEmpty(localStorage.getItem("token")) ? (
                   <LoginOutlined />
                 ) : (

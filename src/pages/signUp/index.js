@@ -1,9 +1,16 @@
 import React from "react";
 import { Button, Row, Col, Form, Input } from "antd";
+import { useDispatch } from "react-redux";
 import { MailOutlined, UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./index.less";
 
 function SignUp() {
+  const dispatch = useDispatch();
+
+  const handleSignUp = (payload) => {
+    dispatch({ type: "POST_UserSignUp", payload });
+    console.log(payload, "qe");
+  };
   return (
     <div id="signup">
       <Row justify="center" align="middle" className="wrapper">
@@ -19,7 +26,7 @@ function SignUp() {
           </Row>
           <Row justify="center" className="loginForm">
             <Col xs={12} md={6}>
-              <Form name="basic">
+              <Form name="basic" onFinish={handleSignUp}>
                 <Form.Item
                   hasFeedback
                   name="email"
@@ -40,7 +47,7 @@ function SignUp() {
                   />
                 </Form.Item>
                 <Form.Item
-                  name="username"
+                  name="name"
                   rules={[
                     {
                       required: true,
