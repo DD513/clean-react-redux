@@ -3,7 +3,6 @@ import { Layout, Menu, Switch, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./global.less";
-import "./style.less";
 import _ from "lodash";
 import {
   HomeOutlined,
@@ -58,6 +57,7 @@ function SideMenu() {
             top: 0,
             left: 0,
           }}
+          className={theme === true ? "whiteBackground" : "darkBackground"}
         >
           <Switch
             checked={theme === false}
