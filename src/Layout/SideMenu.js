@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout, Menu, Switch, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -23,6 +23,9 @@ function SideMenu() {
       dispatch({ type: "POST_UserLogout" });
     }
   };
+  if (localStorage.getItem("token") !== null) {
+    dispatch({ type: "GET_User" });
+  }
 
   const [collapsed, setCollapsed] = useState(false);
   const [theme, changeTheme] = useState(true);

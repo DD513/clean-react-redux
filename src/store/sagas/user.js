@@ -1,6 +1,6 @@
-import { takeLatest, call, all } from "redux-saga/effects";
-import { POST_login, POST_signUp } from "../../services/user";
-import { setToken, cleanToken } from "../../utils/token";
+import { takeLatest, call, all, put } from "redux-saga/effects";
+import { POST_login, POST_signUp, GET_user } from "../../services/user";
+import { setToken, cleanToken, getToken } from "../../utils/token";
 import { message } from "antd";
 import { effectError } from "../../utils/handleError";
 
@@ -46,10 +46,30 @@ export function* POST_UserSignUp({ payload, callback, loading }) {
   }
 }
 
+export function* GET_User({ loading, callback }) {
+  try {
+    if (loading) loading(true);
+    const token = yield getToken();
+    const response = yield call(GET_user, token);
+    console.log(response);
+    yield put({
+      type: "SAVE_User",
+      payload: response.user,
+    });
+    message.success(response.message);
+    if (loading) loading(false);
+    if (callback) callback();
+  } catch (error) {
+    if (loading) loading(false);
+    yield effectError(error);
+  }
+}
+
 export default function* userSaga() {
   yield all([
     takeLatest("POST_UserLogin", POST_UserLogin),
     takeLatest("POST_UserLogout", POST_UserLogout),
     takeLatest("POST_UserSignUp", POST_UserSignUp),
+    takeLatest("GET_User", GET_User),
   ]);
 }
