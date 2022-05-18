@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Layout, Menu, Switch, Row, Col } from "antd";
+import React, { useState } from "react";
+import { Layout, Menu, Switch, Row, Col, Avatar } from "antd";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./global.less";
@@ -60,8 +60,7 @@ function SideMenu() {
             top: 0,
             left: 0,
           }}
-          className={theme === true ? "whiteBackground" : "darkBackground"}
-        >
+          className={theme === true ? "whiteBackground" : "darkBackground"}>
           <Switch
             checked={theme === false}
             onChange={() => changeTheme(!theme)}
@@ -71,6 +70,14 @@ function SideMenu() {
           />
           <div className="logo" />
           <Menu className="sideMenu" theme={theme === true ? "light" : "dark"}>
+            <Menu.Item className="userMenu">
+              <Link to="/userProfile">
+                <Avatar
+                  src="https://i.pravatar.cc/?img=20"
+                  size={{ xs: 48, lg: 64, xl: 64 }}
+                />
+              </Link>
+            </Menu.Item>
             {_.map(MenuList, (item, index) => (
               <Menu.Item key={item.menuTitle}>
                 <Link to={item.menuLink} key={index}>
@@ -78,8 +85,7 @@ function SideMenu() {
                   <span
                     className={
                       theme === true ? "light-underline" : "dark-underline"
-                    }
-                  >
+                    }>
                     {item.menuTitle}
                   </span>
                 </Link>
@@ -89,8 +95,7 @@ function SideMenu() {
               key={
                 _.isEmpty(localStorage.getItem("token")) ? "login" : "logout"
               }
-              onClick={handleLogout}
-            >
+              onClick={handleLogout}>
               <Link to="login">
                 {_.isEmpty(localStorage.getItem("token")) ? (
                   <LoginOutlined />
@@ -100,8 +105,7 @@ function SideMenu() {
                 <span
                   className={
                     theme === true ? "light-underline" : "dark-underline"
-                  }
-                >
+                  }>
                   {_.isEmpty(localStorage.getItem("token"))
                     ? "登入 / 註冊"
                     : "登出"}
