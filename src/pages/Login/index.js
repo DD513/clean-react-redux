@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Button, Row, Col, Form, Input, Checkbox } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -6,6 +7,11 @@ import "./index.less";
 
 function Login() {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogin = (payload) => {
+    dispatch({ type: "POST_UserLogin", payload });
+  };
   return (
     <div id="login">
       <Row justify="center" align="middle" className="wrapper">
@@ -26,9 +32,9 @@ function Login() {
           </Row>
           <Row justify="center" className="loginForm">
             <Col xs={12} md={6}>
-              <Form name="basic">
+              <Form name="basic" onFinish={handleLogin}>
                 <Form.Item
-                  name="username"
+                  name="email"
                   rules={[
                     {
                       required: true,
@@ -56,11 +62,7 @@ function Login() {
                   />
                 </Form.Item>
                 <Form.Item>
-                  <Button
-                    // htmlType="submit"
-                    className="loginButton"
-                    onClick={() => navigate("/")}
-                  >
+                  <Button htmlType="submit" className="loginButton">
                     登入
                   </Button>
                 </Form.Item>

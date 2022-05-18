@@ -1,11 +1,8 @@
 import React from "react";
-
 import { Layout } from "antd";
-
 import SideMenu from "./SideMenu";
-import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
-
+import Footer from "./Footer";
 const { Content } = Layout;
 
 const LayoutWithRoute = ({ children }) => {
